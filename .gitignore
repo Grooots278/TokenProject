@@ -1,0 +1,61 @@
+## Общие игнорируемые файлы ##
+.DS_Store
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+Thumbs.db
+
+## .NET ##
+**/[Bb]in/
+**/[Oo]bj/
+**/packages/
+*.userprefs
+*.nupkg
+*.nuspec
+*.pdb
+*.cache
+.vs/
+.vscode/
+
+## WPF ##
+**/bin/
+**/obj/
+*.cache
+*.ilk
+*.log
+*.tmp
+*.tmp_proj
+
+## Node.js/React (если будет) ##
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+*.tgz
+
+## Базы данных ##
+*.db
+*.db-journal
+*.sqlite3
+
+## Логи ##
+*.log
+logs/
+**/Logs/
+
+## Настройки окружения ##
+appsettings.Development.json
+appsettings.local.json
+*.env
+.env.local
+
+## Временные файлы ##
+tmp/
+temp/
+*.tmp
+*.temp
+
+## Исключения для специфичных проектов ##
+!ASP.NET-API/wwwroot/
+!Web-Client/favicon.ico

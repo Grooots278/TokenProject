@@ -1,0 +1,65 @@
+﻿<Window x:Class="TokenWPFProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TokenWPFProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель авторизации -->
+        <GroupBox Grid.Row="0" Header="Авторизация" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txtUsername" Width="100" Margin="5" 
+                         Text="user1" ToolTip="Логин"/>
+                <PasswordBox x:Name="txtPassword" Width="100" Margin="5" 
+                           Password="password1" ToolTip="Пароль"/>
+                <Button x:Name="btnLogin" Content="Войти" Width="80" Margin="5" 
+                        Click="BtnLogin_Click"/>
+                <Button x:Name="btnLogout" Content="Выйти" Width="80" Margin="5" 
+                        Click="BtnLogout_Click" IsEnabled="False"/>
+                <TextBlock x:Name="lblAuthStatus" Margin="10" VerticalAlignment="Center"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Данные -->
+        <TabControl Grid.Row="1" Margin="10">
+            <TabItem Header="Пользовательские данные">
+                <StackPanel>
+                    <Button x:Name="btnGetUserInfo" Content="Получить данные" 
+                            Margin="5" Click="BtnGetUserInfo_Click"/>
+                    <TextBox x:Name="txtUserInfo" Height="200" Margin="5" 
+                             IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Админ данные">
+                <StackPanel>
+                    <Button x:Name="btnGetAdminData" Content="Получить админ данные" 
+                            Margin="5" Click="BtnGetAdminData_Click"/>
+                    <TextBox x:Name="txtAdminData" Height="200" Margin="5" 
+                             IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Статистика">
+                <StackPanel>
+                    <Button x:Name="btnGetStats" Content="Получить статистику" 
+                            Margin="5" Click="BtnGetStats_Click"/>
+                    <TextBox x:Name="txtStats" Height="200" Margin="5" 
+                             IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <!-- Лог -->
+        <GroupBox Grid.Row="2" Header="Лог запросов" Margin="10">
+            <TextBox x:Name="txtLog" Height="100" IsReadOnly="True" 
+                     VerticalScrollBarVisibility="Auto"/>
+        </GroupBox>
+    </Grid>
+</Window>

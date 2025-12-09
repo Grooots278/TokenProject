@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Клиент - ASP.NET JWT</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔐 API Клиент</h1>
+            <p>Демонстрация работы с ASP.NET Web API (JWT аутентификация)</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Панель авторизации -->
+            <section class="panel auth-panel">
+                <h2>🔑 Авторизация</h2>
+                <div class="auth-form">
+                    <div class="form-group">
+                        <label for="username">👤 Логин:</label>
+                        <input type="text" id="username" value="user1">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">🔒 Пароль:</label>
+                        <input type="password" id="password" value="password1">
+                    </div>
+                    <div class="button-group">
+                        <button id="btnLogin" class="btn btn-primary">🚪 Войти</button>
+                        <button id="btnLogout" class="btn btn-secondary" disabled>🚶 Выйти</button>
+                    </div>
+                </div>
+                <div id="authStatus" class="auth-status hidden">
+                    <p>✅ <span id="statusText"></span></p>
+                    <p>Токен: <code id="tokenPreview"></code></p>
+                </div>
+                <div id="errorMessage" class="error-message hidden"></div>
+            </section>
+
+            <!-- Тестовые пользователи -->
+            <section class="panel test-users">
+                <h3>👥 Тестовые пользователи:</h3>
+                <div class="user-buttons">
+                    <button class="user-btn" data-user="user1" data-pass="password1">
+                        user1 / password1 <span class="role">(User)</span>
+                    </button>
+                    <button class="user-btn" data-user="user2" data-pass="password2">
+                        user2 / password2 <span class="role">(User)</span>
+                    </button>
+                    <button class="user-btn" data-user="admin" data-pass="admin123">
+                        admin / admin123 <span class="role">(Admin)</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Панель данных -->
+            <section class="panel data-panel">
+                <h2>💾 Данные API</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="user">👤 Пользовательские</button>
+                    <button class="tab-btn" data-tab="admin">🛡️ Админские</button>
+                    <button class="tab-btn" data-tab="stats">📊 Статистика</button>
+                    <button class="tab-btn" data-tab="public">🌐 Публичные</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="tab-user" class="tab-pane active">
+                        <button id="btnGetUserInfo" class="btn btn-success" disabled>
+                            📥 Получить данные пользователя
+                        </button>
+                        <div class="data-display">
+                            <pre id="userData">Нажмите кнопку для получения данных...</pre>
+                        </div>
+                    </div>
+                    
+                    <div id="tab-admin" class="tab-pane">
+                        <button id="btnGetAdminData" class="btn btn-warning" disabled>
+                            🛡️ Получить админ данные
+                        </button>
+                        <div class="data-display">
+                            <pre id="adminData">Только пользователи с ролью Admin...</pre>
+                        </div>
+                    </div>
+                    
+                    <div id="tab-stats" class="tab-pane">
+                        <button id="btnGetStats" class="btn btn-info" disabled>
+                            📈 Получить статистику
+                        </button>
+                        <div class="data-display">
+                            <pre id="statsData">Нажмите кнопку для получения статистики...</pre>
+                        </div>
+                    </div>
+                    
+                    <div id="tab-public" class="tab-pane">
+                        <button id="btnGetPublicInfo" class="btn">🌐 Получить публичную информацию</button>
+                        <button id="btnGetHealth" class="btn">❤️ Проверить здоровье API</button>
+                        <div class="data-display">
+                            <pre id="publicData">Публичные данные доступны без авторизации...</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Панель логов -->
+            <section class="panel logs-panel">
+                <h2>📝 Логи запросов</h2>
+                <div class="logs-controls">
+                    <button id="btnClearLogs" class="btn btn-small">🗑️ Очистить логи</button>
+                    <button id="btnRunTests" class="btn btn-small btn-test">🧪 Тесты безопасности</button>
+                </div>
+                <div class="logs-container">
+                    <div id="logs"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>ASP.NET Web API с JWT аутентификацией | Локальная сеть</p>
+            <p>API URL: <code id="apiUrl">http://localhost:5261</code></p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
