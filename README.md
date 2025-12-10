@@ -4,7 +4,7 @@
 
 ## 🚀 Особенности
 
-- **ASP.NET Web API 8.0** с JWT аутентификацией
+- **ASP.NET Web API 10.0** с JWT аутентификацией
 - **WPF клиент** для десктоп приложений
 - **Веб-клиент** (HTML/CSS/JS) для браузеров
 - **MemoryCache** для управления сессиями
@@ -26,7 +26,8 @@ ASP.NET-API-Example/
 cd ASP.NET-API
 dotnet run
 
-API будет доступен по: http://localhost:5261
+API будет доступен по: http://localhost:5261 (либо другая ссылка,
+в зависимости от сертификаиа и выбранного порта)
 
 Запустите PowerShell тесты:
 .\Tests\api-tests.ps1
@@ -100,9 +101,9 @@ WPF клиент
 
 ⚙️ Технологии
 
-    Backend: ASP.NET 8.0, JWT Bearer, MemoryCache
+    Backend: ASP.NET 10.0, JWT Bearer, MemoryCache
 
-    WPF: .NET 8.0, System.Text.Json
+    WPF: .NET 10.0, System.Text.Json
 
     Web: Vanilla JavaScript, Fetch API
 
